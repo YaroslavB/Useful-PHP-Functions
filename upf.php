@@ -1430,3 +1430,14 @@ if (!function_exists('random_bytes')) {
 		return openssl_random_pseudo_bytes ($length);
 	}
 }
+/**
+ * Array flat 
+ */
+ function array_flatten_recursive($array) {
+        if (!$array) return false;
+        $flat = array();
+        $RII = new RecursiveIteratorIterator(new RecursiveArrayIterator($array));
+        foreach ($RII as $value) $flat[] = $value;
+        return $flat;
+    }
+
